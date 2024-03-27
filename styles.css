@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Mv Boli, Geneva, Tahoma, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.image-container {
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  position: relative;
+}
+
+.image {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.image-container::before,
+.image-container::after {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  width: max-content;
+  max-width: 100%;
+  transition: 150ms transform ease-in-out;
+}
+
+.image-container::before {
+  content: "Let's Play Football";
+  color: white;
+  background-color: #777;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.7rem;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.7);
+
+  transform: translateX(-50%) translateY(-100%) scale(0);
+  transform-origin: bottom center;
+}
+
+.image-container::after {
+  content: "";
+  transform: translateX(-50%) scale(0);
+  width: 15px;
+  height: 15px;
+  border: 10px solid transparent;
+  border-top-color: #777;
+  transform-origin: top center;
+}
+
+.image-container:hover::before {
+  transform: translateX(-50%) translateY(-100%) scale(1);
+}
+
+.image-container:hover::after {
+  transform: translateX(-50%) scale(1);
+}
